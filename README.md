@@ -154,6 +154,8 @@ invokes cmake commands as needed.
 
          make release-static
 
+You might need to build static librarie with -fPIC. 
+
 * **Optional**: build documentation in `doc/html` (omit `HAVE_DOT=YES` if `graphviz` is not installed):
 
         HAVE_DOT=YES doxygen Doxyfile
