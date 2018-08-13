@@ -939,6 +939,7 @@ namespace cryptonote
     {
       std::string status;
       uint64_t height;
+      uint64_t already_generated_coins;
       uint64_t target_height;
       uint64_t difficulty;
       uint64_t target;
@@ -968,6 +969,7 @@ namespace cryptonote
       BEGIN_KV_SERIALIZE_MAP()
         KV_SERIALIZE(status)
         KV_SERIALIZE(height)
+        KV_SERIALIZE(already_generated_coins)
         KV_SERIALIZE(target_height)
         KV_SERIALIZE(difficulty)
         KV_SERIALIZE(target)
