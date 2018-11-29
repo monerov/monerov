@@ -75,6 +75,8 @@ namespace {
       << "hash: " << header.hash << std::endl
       << "difficulty: " << boost::lexical_cast<std::string>(header.difficulty) << std::endl
       << "reward: " << boost::lexical_cast<std::string>(header.reward);
+      << "block size: " << header.block_size << std::endl
+      << "num txes: " << header.num_txes << std::endl
   }
 
   std::string get_human_time_ago(time_t t, time_t now)
