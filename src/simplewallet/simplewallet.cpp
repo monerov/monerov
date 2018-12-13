@@ -3788,7 +3788,7 @@ bool simple_wallet::set_daemon(const std::vector<std::string>& args)
       }
       catch (const std::exception &e) { }
     }
-    success_msg_writer() << boost::format("Daemon set to %s, %s") % daemon_url % (*m_trusted_daemon ? tr("trusted") : tr("untrusted"));
+    success_msg_writer() << boost::format("Daemon set to %s, %s") % daemon_url % (m_trusted_daemon ? tr("trusted") : tr("untrusted"));
   } else {
     fail_msg_writer() << tr("This does not seem to be a valid daemon URL.");
   }
