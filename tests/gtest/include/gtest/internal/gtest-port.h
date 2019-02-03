@@ -1553,7 +1553,7 @@ class GTEST_API_ Notification {
 };
 # endif  // GTEST_HAS_NOTIFICATION_
 
-# if GTEST_HAS_PTHREAD && !GTEST_OS_WINDOWS_MINGW
+# if GTEST_HAS_PTHREAD
 
 // As a C-function, ThreadFuncWithCLinkage cannot be templated itself.
 // Consequently, it cannot select a correct instantiation of ThreadWithParam
