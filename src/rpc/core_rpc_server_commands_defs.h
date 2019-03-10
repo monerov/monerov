@@ -1704,7 +1704,7 @@ namespace cryptonote
     {
       std::string status;
       uint64_t limit_up;
-      uint64_t limit_down;
+      uint64_t limit_down; // all limits (for get and set) are kB/s
       bool untrusted;
       
       BEGIN_KV_SERIALIZE_MAP()
