@@ -830,7 +830,7 @@ namespace cryptonote
      *
      * @return a set of amount/instances
      */
-    std::map<uint64_t, std::tuple<uint64_t, uint64_t, uint64_t>> get_output_histogram(const std::vector<uint64_t> &amounts, bool unlocked, uint64_t recent_cutoff) const;
+    std::map<uint64_t, std::tuple<uint64_t, uint64_t, uint64_t>> get_output_histogram(const std::vector<uint64_t> &amounts, bool unlocked, uint64_t recent_cutoff, uint64_t min_count = 0) const;
 
     /**
      * @brief perform a check on all key images in the blockchain
