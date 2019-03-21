@@ -67,6 +67,9 @@
 #include "language_base.h"
 #include "singleton.h"
 
+#undef MONERO_DEFAULT_LOG_CATEGORY
+#define MONERO_DEFAULT_LOG_CATEGORY "mnemonic"
+
 namespace
 {
   uint32_t create_checksum_index(const std::vector<std::string> &word_list,
@@ -152,6 +155,7 @@ namespace
       if (full_match)
       {
         *language = *it1;
+        MINFO("Full match for language " << (*language)->get_english_language_name());
         return true;
       }
       // Some didn't match. Clear the index array.
@@ -164,9 +168,11 @@ namespace
     if (fallback)
     {
       *language = fallback;
+      MINFO("Fallback match for language " << (*language)->get_english_language_name());
       return true;
     }
 
+    MINFO("No match found");
     return false;
   }
 
@@ -217,7 +223,9 @@ namespace
       checksum;
     std::string trimmed_last_word = last_word.length() > unique_prefix_length ? Language::utf8prefix(last_word, unique_prefix_length) :
       last_word;
-    return trimmed_checksum == trimmed_last_word;
+    bool ret = trimmed_checksum == trimmed_last_word;
+    MINFO("Checksum is %s" << (ret ? "valid" : "invalid"));
+    return ret;
   }
 }
 
@@ -253,7 +261,10 @@ namespace crypto
       boost::split(seed, words, boost::is_any_of(" "), boost::token_compress_on);
 
       if (len % 4)
+      {
+        MERROR("Invalid seed: not a multiple of 4");
         return false;
+      }
 
       bool has_checksum = true;
       if (len)
